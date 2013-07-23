@@ -1,6 +1,5 @@
-require(ggplot2)
 dados <- read.csv("xsys.csv")
-maquinas <-c("abcslp187", "abchlc202", "abchlc208", "abchlc217", "abchlc520", "abchls160", "abchls800", "abcslc204", "abchlc795", "abchlp795", "abchls795", "abchlp337", "bcdhlp112", "bcdhlp234", "abchlp920", "abchlp921", "abchlp504", "abchlp505", "abchlp506", "abchlp507", "abchlp508", "abchlp509", "abchlp510", "abchlp511", "abchlp970", "abchlp249", "abchlp557", "abchlp558", "abchlp579", "abchlp582", "abchlp583", "abchlp584", "abchlp750", "abchlp752", "abchlp753", "abchlp754", "abchlp755", "abchlp756", "abchlp757", "abchlp758", "abchlp759")
+maquinas <-c("m31", "m232", "m233", "m242", "m245", "m246", "m247", "m251", "m253", "m254", "m255", "m256", "m257", "m258", "m259", "m260", "m10", "m15", "m17", "m23", "m55", "m65", "m67", "m69", "m70", "m71", "m77", "m117", "m132", "m147", "m148", "m186", "m187", "m188", "m189", "m190", "m191", "m192", "m193", "m262", "m298")
 
 graficos<- function(inicio, fim){
   for(contador in c(inicio:fim)){
@@ -10,7 +9,7 @@ graficos<- function(inicio, fim){
       nome <- paste(paste("grafico-", names(dados[contador]), sep=""), ".png", sep="")
       png(nome)
       p <- ggplot(temp, aes(Epoch, pc))
-      p <- p + geom_line()+ xlab("Tempo") + ylab("Utilização da maquina(%)")
+      p <- p + geom_line()+ xlab("Tempo") + ylab(paste("Porcentagem de Utilização da ", names(dados[contador]), sep=""))
       print(p)
 	dev.off()
   }

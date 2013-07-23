@@ -1,4 +1,4 @@
-dados <- read.csv("rua-analytics/short_duration/xsys.csv")
+dados <- read.csv("xsys.csv")
 
 porc_maquina = c()
 

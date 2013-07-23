@@ -1,6 +1,6 @@
 require(ggplot2)
 dados <- read.csv("xsys.csv")
-maquinas <-c("abchlp557", "abchlp558", "abchlp579", "abchlp582", "abchlp583", "abchlp584", "abchlp750", "abchlp752", "abchlp753", "abchlp754", "abchlp755", "abchlp756", "abchlp757", "abchlp758", "abchlp759")
+maquinas <-c("m232", "m233", "m242", "m245", "m246", "m247", "m251", "m253", "m254", "m255", "m256", "m257", "m258", "m259", "m260")
 
 graficos<- function(inicio, fim){
   for(contador in c(inicio:fim)){
@@ -11,7 +11,7 @@ graficos<- function(inicio, fim){
       nome <- paste(paste("grafico-", names(dados[contador]), sep=""), ".png", sep="")
       png(nome)
       p <- ggplot(temp, aes(Epoch, pc))
-      p <- p + geom_line()+ xlab("Tempo") + ylab("Utilização da maquina(%)")
+      p <- p + geom_line()+ xlab("Tempo") + ylab(paste("Porcentagem de Utilização da ", names(dados[contador]), sep=""))
       p <- p+geom_segment(data = valores.cem, mapping = aes(x = Epoch, y = 0, xend = Epoch, yend = 100), colour="red")
       print(p)
 	dev.off()
