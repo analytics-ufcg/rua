@@ -16,7 +16,7 @@ encontra.limite.superior<- function(inicio, fim, limite){
   }
  }
   colnames(df) = c("Maquina", "Porcentagem")
-  write.csv(df, "Porcentagem_dos_100.csv", row.names=F, quote=F)
+  write.csv(df, "contagem.csv", row.names=F, quote=F)
 }
 
 encontra.limite.superior(4,393,100)
