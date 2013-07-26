@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <title>RUA</title>
 
-<script type="text/javascript" src="javascript/d3.v3.js"></script>
+<script type="text/javascript" src="data/d3.v3.js"></script>
+<script type="text/javascript" src="data/plot.js"></script>
 
 <link href="css/index_main.css" rel="stylesheet" type="text/css" />
 
@@ -12,14 +13,19 @@
 <body onload="loadData()">
 	<div id="container">
 
-		<div id="title_header">RUA</div></div>
-
+		<div id="title_header">RUA - Resource Usage Analytics</div>
+		<div id = "menu">
+			Selecione uma maquina: <select id = "myList"
+						onchange="getMenuOption(this)">
+			</select>
+		</div>
+		</div>
+		
 		<div id="main_content"></div>
 		
 
 		<div id="footer">
-
-			Resource Usage Analytics</a>
+			FRH - Analytics 2013</a>
 		</div>
 	</div>
 		

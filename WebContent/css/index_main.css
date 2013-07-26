@@ -3,7 +3,7 @@
 html,body {
 	height: 100%;
 	width: 100%;
-	color: #DCDCDC;
+	color: white;
 	font: 12px sans-serif;
 	padding: 0;
 	margin: 0;
@@ -19,13 +19,24 @@ html,body {
 	text-align: center;
 }
 
-#title_header {
-	background-color: black;
-	padding: 0;
+#menu {
+	background-color: #F5F5F5;
+	padding: 0 0;
 	margin: 0px;
-	color: #DCDCDC;
-	font-size: 3.75em;
+	color: #6495ED;
+	font-size: 1.75em;
+	height: 40px;
+	position: center;
+}
+
+#title_header {
+	background-color: #F5F5F5;
+	padding: 0 0;
+	margin: 0px;
+	color: #6495ED;
+	font-size: 2.75em;
 	height: 70px;
+	position: center;
 }
 
 
@@ -40,10 +51,10 @@ html,body {
 }
 
 #footer{
-	background-color: black;
+	background-color: #D3D3D3;
 	padding: 0 0;
 	margin: 0px;
-	color: #DCDCDC;
+	color: #6495ED;
 	font-size: 1.5em;
 	height: 70px;
     bottom:0;
@@ -51,3 +62,19 @@ html,body {
     position:absolute;
 }
 
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
