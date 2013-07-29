@@ -1,7 +1,7 @@
 traces_selecionados <- read.csv("Maquinas_selecionas.csv", head = T)
 dados <- read.csv("xsys.csv", head = T)
 
-dados_selecionados = dados[,1:3]
+dados_selecionados = paste(dados[,2],dados[,3], sep = " ")
 
 for(i in seq(4:393)){
   maquina = c()
@@ -13,7 +13,7 @@ for(i in seq(4:393)){
   }
 }
 
-colnames(dados_selecionados) = c("x","data","time","M105", "M121", "M122", "M137", "M143", "M169", "M173", "M174", "M178", "M196", "M243",
+colnames(dados_selecionados) = c("datatime","M105", "M121", "M122", "M137", "M143", "M169", "M173", "M174", "M178", "M196", "M243",
                                  "M300", "M308", "M376", "M379", "M86",  "M87",  "M9",   "M93",  "M97")
 
 write.csv(dados_selecionados,"traces_selecionados.csv")
