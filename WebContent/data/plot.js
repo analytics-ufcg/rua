@@ -1,10 +1,4 @@
 ﻿var dataset = [];
-var svg;
-
-var margin = {top: 20, right: 20, bottom: 30, left: 50},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
-
 
 function getMenuOption(selection) {
 	//limpa containers
@@ -31,16 +25,6 @@ function loadData(){
 		.text(function(d){return d.Maquina;});
 		console.log(myList);
 	});
-	
-	d3.csv("data/traces_selecionados.csv", function(data){
-		dataset = data;
-	});
-	
-	plotSerie();
-}
-
-function plotSerie(){
-	svg = d3.select("#div_indicador").select("svg");
 	
 	
 }

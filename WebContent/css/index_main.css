@@ -39,11 +39,6 @@ html,body {
 	position: center;
 }
 
-#plot_area {
-    float: left;
-    width: 75%;
-	background-color: white;
-}
 
 #main_content {
 	padding: 0 0;
