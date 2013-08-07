@@ -9,9 +9,19 @@ filter <- function(){
 }
 
 test <- function(data){
+    dados<-data
+    dados$CPU_UTIL <- ceiling(dados$CPU_UTIL)
+    if(testVaria(dados)){
+	    testAutoCorr(dados)
+	}else{
+	    FALSE
+	}
+	
+}
+
+testVaria <- function(data){
     dadosTeto<-data
-    dadosTeto$CPU_UTIL <- ceiling(dadosTeto$CPU_UTIL)
-    valores = c()
+	valores = c()
     k = 1
     for (i in dadosTeto[,3]){
       if(i %in% valores){}
@@ -27,7 +37,14 @@ test <- function(data){
     }
 }
 
+testAutoCorr <- function(data){
+    TRUE
+}
+
 filter()
+
+
+#funções que poderam ser usadas em um futuro proximo
 
 ptest <- function(num){
     dadosTeto<- read.csv(paste("filesInput/xsys",num, ".csv", sep=""))
@@ -46,7 +63,7 @@ for(i in (1:40)){
   dev.off()
 }
 
-test2 <- function(data){
+testQuartil <- function(data){
     dadosTeto<-data
     dadosTeto$CPU_UTIL <- ceiling(dadosTeto$CPU_UTIL)
     valores = c()
