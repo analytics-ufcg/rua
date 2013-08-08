@@ -62,7 +62,7 @@ testAutoCorr <- function(data){
 filter()
 
 
-#funções que poderam ser usadas em um futuro proximo
+#funções que poderão ser usadas em um futuro proximo
 
 ptest <- function(num){
     dadosTeto<- read.csv(paste("filesInput/xsys",num, ".csv", sep=""))
