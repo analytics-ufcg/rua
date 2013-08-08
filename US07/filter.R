@@ -40,27 +40,23 @@ testVaria <- function(data){
 testAutoCorr <- function(data){
     corr <- acf(data$CPU_UTIL, na.action=na.pass, lag.max = length(data$CPU_UTIL)/2,plot=F)
     flag = TRUE
-    cont = 1
-    val = corr[0]
+    cont = 2
+    val = corr$acf[1]
     while(flag){
-        if(corr[cont]<val && corr[cont]>0){
-            val = corr[cont]
+        if((corr$acf[cont]<val && corr$acf[cont]>0)){
+            val = corr$acf[cont]
             cont = cont + 1
         }else{
             flag = FALSE
         }
     }
-    resul = {}
-    pos = 1
-    for(i in cont:length(data)){
-        resul[pos] = corr[i]
-        pos = pos +1
+    resul = corr$acf[cont:length(data)]    
+    if(max(resul)>=0.3 || min(resul)<=-0.3){
+        TRUE
     }
-    
-    if(max(resul)){}
-    if(min(resul)){}
-
-    TRUE
+    else{
+        FALSE
+    }
 }
 
 filter()
