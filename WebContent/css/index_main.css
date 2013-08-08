@@ -3,23 +3,33 @@
 html,body {
 	height: 100%;
 	width: 100%;
-	color: white;
-	font: 12px sans-serif;
-	padding: 0;
+	font-family:arial;
+	/*font: 12px sans-serif;*/
 	margin: 0;
-    text-align: center;
-    background-color: white;
+    background-color: #FCFCFC;
 }
 
 #container {
 	width: 100%;
     min-height:100%;
-    position:relative;
-	padding: 0 0;
 	text-align: center;
+    position:relative;
 }
 
-#menu {
+#filtro{
+	width: 100%;
+    min-height:100%;
+	height: 600px;
+    position:relative;
+	padding: 0 0;
+	color: #131B39;
+	text-align: center;
+	font-family:arial;
+	font-size: 18px;
+    left: 26px;
+}
+
+/* #menu {
 	background-color: #F5F5F5;
 	padding: 0 0;
 	margin: 0px;
@@ -27,7 +37,7 @@ html,body {
 	font-size: 1.75em;
 	height: 40px;
 	position: center;
-}
+} */
 
 #opcao {
 	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -36,12 +46,12 @@ html,body {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
 	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
-	background-color:#ededed;
+	background-color: #F5F5F5;
 	-moz-border-radius:6px;
 	-webkit-border-radius:6px;
 	border-radius:6px;
 	border:1px solid #dcdcdc;
-	display:inline-block;
+	display:table;
 	color:#777777;
 	font-family:arial;
 	font-size:15px;
@@ -60,24 +70,13 @@ html,body {
 }
 
 #title_header {
-	background-color: #F5F5F5;
+	background-color: #DEDEDE;
 	padding: 0 0;
 	margin: 0px;
 	color: #6495ED;
 	font-size: 2.75em;
-	height: 40px;
+	height: 50px;
 	position: center;
-}
-
-
-#main_content {
-	padding: 0 0;
-	margin: 0px;
-    min-height: 100%;
-    padding-bottom: 70px;
-    overflow: hidden;
-	background-color: white;
-
 }
 
 #footer{

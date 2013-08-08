@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -14,17 +14,25 @@
 	<div id="container">
 
 		<div id="title_header">RUA - Resource Usage Analytics</div>
-		  <div id="opcao" class="classname">
-			<a>Filtrar aplica��es</a>
+		<div id ="menu">
+		  <!-- <div id="opcao" class="classname" onclick="filtrar_aplicacoes()">
+			<a>Filtrar aplicações</a>
+			
 		  </div>
-		  <div id="opcao" class="classname">
+		  <div id="opcao" class="classname" onclick="navegar_traces()">
 			<a>Navegar entre os traces</a>
 		  </div>
-		  <div id="opcao" class="classname">
-			<a>Classificar aplica��es</a>
+		  <div id="opcao" class="classname" onclick="classificar_aplicacoes()">
+			<a>Classificar aplicações</a> -->
+			
+			<div id = "filtro">
+			<div align="left"><br>
+			<p>Selecione a característica :</p>
+			<input type="checkbox" name="option1" value="memoria" checked="filtrar_aplicacoes()">Memória<br>
+			<input type="checkbox" name="option1" value="cpu">CPU<br>
+			<input type="checkbox" name="option1" value="memoria_cpu">Memória e CPU<br>
 		  </div>
-		<div id="main_content"></div>
-		
+		  </div>
 		<div id="footer">
 			FRH - Analytics 2013</a>
 		</div>
