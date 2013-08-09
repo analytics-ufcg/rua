@@ -1,4 +1,4 @@
-﻿"maquina","mem","cpu","var.mem","sd.mem","sazonalidade.mem","tendencia.mem","grauautocor.mem","var.cpu","sd.cpu","sazonalidade.cpu","tendencia.cpu","grauautocor.cpu"
+﻿"maquina","mem","cpu","var_mem","sd_mem","sazonalidade_mem","tendencia_mem","grauautocor_mem","var_cpu","sd_cpu","sazonalidade_cpu","tendencia_cpu","grauautocor_cpu"
 "xsys1","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
 "xsys2","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
 "xsys3","TRUE","TRUE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
