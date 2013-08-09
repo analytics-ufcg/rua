@@ -26,13 +26,19 @@
 			<a>Classificar aplicações</a> -->
 			
 			<div id = "filtro">
-			<div align="left"><br>
+			<p>Filtrar Aplicações</p>
+			Selecione uma aplicação: <select id="myList"
+				onchange="getMenuOption(this)">
+			</select>
+			<div id="caracteristicas" align="left"><br>
 			<p>Selecione a característica :</p>
-			<input type="checkbox" name="option1" value="memoria" checked="filtrar_aplicacoes()">Memória<br>
-			<input type="checkbox" name="option1" value="cpu">CPU<br>
-			<input type="checkbox" name="option1" value="memoria_cpu">Memória e CPU<br>
+				<input type="radio" name="option1" onclick="filtrar_aplicacoes(1)">Memória<br>
+				<input type="radio" name="option1" onclick="filtrar_aplicacoes(2)">CPU<br>
+				<input type="radio" name="option1" onclick="filtrar_aplicacoes(3)">Memória e CPU<br>
+			</div>
+			<div id = "legenda"></div>
 		  </div>
-		  </div>
+		  
 		<div id="footer">
 			FRH - Analytics 2013</a>
 		</div>

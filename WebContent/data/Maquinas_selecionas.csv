@@ -1,21 +1,41 @@
-﻿Maquina
-M105
-M121
-M122
-M137
-M143
-M169
-M173
-M174
-M178
-M196
-M243
-M300
-M308
-M376
-M379
-M86
-M87
-M9
-M93
-M97
+﻿"maquina","mem","cpu","var.mem","sd.mem","sazonalidade.mem","tendencia.mem","grauautocor.mem","var.cpu","sd.cpu","sazonalidade.cpu","tendencia.cpu","grauautocor.cpu"
+"xsys1","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys2","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys3","TRUE","TRUE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys4","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys5","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys6","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys7","TRUE","TRUE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys8","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys9","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys10","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys11","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys12","TRUE","TRUE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys13","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys14","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys15","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys16","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys17","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys18","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys19","TRUE","TRUE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys20","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys21","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys22","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys23","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys24","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys25","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys26","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys27","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys28","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys29","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys30","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys31","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys32","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys33","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys34","TRUE","TRUE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys35","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys36","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys37","TRUE","TRUE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys38","TRUE","TRUE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys39","TRUE","TRUE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
+"xsys40","TRUE","FALSE","a mem","b mem","c mem","d mem","e mem","a cpu","b cpu","c cpu","d cpu","e cpu"
