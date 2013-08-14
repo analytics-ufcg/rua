@@ -1,0 +1,18 @@
+﻿RUA
+
+
+O que é o RUA?
+O Resource Usage Analytics tem como objetivo desenvolver um sistema web que consiga analisar a distribuição dos recursos de uma aplicação, com relação a memória RAM e CPU,  para prover, às aplicações que usam a nuvem, os recursos necessários e, ao mesmo tempo, evitar o desperdício de alocar mais recursos do que o demandado pela aplicação, de forma eficiente. 
+
+
+Como isso é feito?
+Através de uma analise em traces (histórico das máquinas que rodavam as aplicações de web service) coletados em um periodo de tempo de 8 meses. 
+
+
+Como filtrar os melhores traces para essa análise?
+Inicialmente os traces que não sofriam variação, ou sofriam pouca variação, foram eliminados, esses traces geralmente em suas series temporais se comportavam praticamente como uma reta.
+Após esta abordagem, foi aplicado um outro método de fitragem, por  meio da autocorrelação, que nos diz o quanto o valor de uma realização de uma variável aleatória é capaz de influenciar seus vizinhos. Para tanto calculamos a autocorrelação, então descartamos os valores até encontrar um que seja maior que o anterior ou até atingirmos o valor zero, depois desse descarte de valores iniciais (realizado porque no inicio da comparação da correlação os valores iniciais ainda estão influênciados pela proximidade dos pontos examinados), observamos os valores e caso encontremos pelo menos um valor maior ou igual a 0.3 ou menor ou igual a -0.3 significa que o trace possui uma variação padronizada de no minimo fraca, justificando sua permanencia nos traces a serem estudados,  após passar pelo filtro. Com isso chegamos a um conjunto de traces mais relevantes para classificação.
+
+
+Como classificar os traces?
+Os traces foram classificados em três categorias, memory-intense, cpu-intense ou memory-cpu-intense, de acordo com o recurso que mais for demandado da nuvem.
