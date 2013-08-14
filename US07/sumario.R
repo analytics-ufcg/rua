@@ -61,12 +61,12 @@ sumarioTOarquivo <- function(diretorio, cpu, arquivo){
       dados <- dados$MEM_UTIL
     }      
     autocorrelacao <- valorAutoCorr(ceiling(dados))
-    df[i,] <- c(paste("xsys",i,sep=""), sd(na.omit(dados)),
-                                        var(na.omit(dados)), 
-                                        max(na.omit(autocorrelacao)), 
-                                        min(na.omit(autocorrelacao)), 
-                                        grauAutoCorr(autocorrelacao), 
-                                        tendencia(autocorrelacao))
+    df[i,] <- c(paste("xsys",i,sep=""), round(sd(na.omit(dados)), digits=4),
+                round(var(na.omit(dados)), digits=4), 
+                round(max(na.omit(autocorrelacao)), digits=4), 
+                round(min(na.omit(autocorrelacao)), digits=4), 
+                round(grauAutoCorr(autocorrelacao), digits=4), 
+                tendencia(autocorrelacao))
   }
   write.table(df, file = arquivo, col.names = TRUE, row.names=FALSE)  
 }
