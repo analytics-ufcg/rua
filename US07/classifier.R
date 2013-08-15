@@ -45,9 +45,17 @@ classificaSemPeso <- function(diretorio, arquivo){
 classificaComPeso <- function(diretorio, arquivo){
   df <- data.frame(MAQ=rep(""), CPU=rep(NA), MEM=rep(NA), Classe=rep(""), stringsAsFactors=FALSE)
   df = df[-1,]
+  filtro_mem <- read.csv(paste(diretorio,"sumario_mem.csv", sep = ""), head = T, sep = " ")
+  filtro_cpu <- read.csv(paste(diretorio,"sumario_cpu.csv", sep = ""), head = T, sep = " ")
+  filtro_mem$cpu = 0
+  filtro_mem$mem = 0
+  filtro_mem$classe = 0
+  filtro_cpu$cpu = 0
+  filtro_cpu$mem = 0
+  filtro_cpu$classe = 0
   
   for(j in (1:40)){
-    dados <- read.csv(paste(diretorio, "xsys", j,".csv", sep=""))
+    dados <- read.csv(paste(diretorio, "xsys", j,".csv", sep=""))    
     
     dados$CPU_UTIL <- ceiling(dados$CPU_UTIL)
     dados$MEM_UTIL <- ceiling(dados$MEM_UTIL)
@@ -77,7 +85,22 @@ classificaComPeso <- function(diretorio, arquivo){
       classe = "CPU/MEM"
     } 
     
+    filtro_cpu[filtro_cpu$maquina == paste("xsys",j, sep = ""), ]$cpu = cpu
+    filtro_cpu[filtro_cpu$maquina == paste("xsys",j, sep = ""), ]$mem = mem
+    filtro_cpu[filtro_cpu$maquina == paste("xsys",j, sep = ""), ]$classe = classe
+    print(filtro_cpu[filtro_cpu$maquina == paste("xsys",j, sep = ""), ])
+    
+    filtro_mem[filtro_mem$maquina == paste("xsys",j, sep = ""), ]$cpu = cpu
+    filtro_mem[filtro_mem$maquina == paste("xsys",j, sep = ""), ]$mem = mem
+    filtro_mem[filtro_mem$maquina == paste("xsys",j, sep = ""), ]$classe = classe
+    print(filtro_mem[filtro_mem$maquina == paste("xsys",j, sep = ""), ])
+    
     df[j,] <- c(paste("xsys",j,sep=""), cpu, mem, classe)
+    
+    #print(paste("xsys",j, sep = ""))
+    
   }
+  write.table(filtro_cpu, file = "sumario_cpu.csv")
+  write.table(filtro_mem, file = "sumario_mem.csv")
   write.table(df, file = arquivo, col.names = TRUE, row.names=FALSE)  
 }
