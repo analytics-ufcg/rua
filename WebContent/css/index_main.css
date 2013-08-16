@@ -26,7 +26,7 @@ html,body {
 	color: #131B39;
 	text-align: center;
 	font-family:arial;
-	font-size: 18px;
+	font-size: 15px;
     left: 26px;
 }
 
@@ -59,11 +59,11 @@ html,body {
     background-color: #ffffff;
 	padding: 0 0;
 	color: #000000;
-	font-size: 1.3em;
+	font-size: 15px;
 	text-align: center;
     position: absolute;
 	bottom: 0;
-	margin-bottom: 100px;
+	margin-bottom: 70px;
 	margin-left: 30px;
 }
 
@@ -92,7 +92,7 @@ html,body {
 	display:table;
 	color:#777777;
 	font-family:arial;
-	font-size:15px;
+	font-size:10px;
 	font-weight:bold;
 	padding:6px 24px;
 	text-decoration:none;
@@ -123,25 +123,8 @@ html,body {
 	margin: 0px;
 	color: #6495ED;
 	font-size: 1.5em;
-	height: 70px;
+	height: 50px;
     bottom:0;
     width:100%;
     position:absolute;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-.x.axis path {
-  display: none;
-}
-
-.line {
-  fill: none;
-  stroke: steelblue;
-  stroke-width: 1.5px;
 }

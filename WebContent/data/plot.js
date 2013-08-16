@@ -23,16 +23,18 @@ function cleanContainers(){
 
 function loadData(){
 	
-	d3.csv("data/Maquinas_selecionas.csv", function(data){
-		dataset = data;
+	d3.csv("data/sumario_cpu.csv", function(data){
+		filtro_cpu = data;
+	});
+
+	d3.csv("data/sumario_mem.csv", function(data){
+		filtro_mem = data;
 	});
 
 }
 
 function filtrar_aplicacoes(opcao){
 	
-	filtro_mem = dataset.filter(function(i){return i.mem == "TRUE";});
-	filtro_cpu = dataset.filter(function(i){return i.cpu == "TRUE";});
 	var myList = d3.selectAll("#myList");
 	opcao_carac = opcao;
 	
@@ -58,7 +60,7 @@ function filtrar_aplicacoes(opcao){
 		myList = d3.selectAll("#myList");
 		myList.selectAll("option").remove();
 		clearImages()
-		myList.selectAll("option").data(dataset).enter().append("option")
+		myList.selectAll("option").data(filtro_cpu).enter().append("option")
 		.attr("value",function(d){return d.maquina;})
 		.attr("label",function(d){return d.maquina;})
 		.text(function(d){return d.maquina;});
@@ -72,11 +74,11 @@ function getAplicacao(){
 	img = document.createElement('img');
     
 	if(opcao_carac == "1"){
-		img.src = "data/graficos/mem/" + maquina + ".png";
+		img.src = "data/graficos/mem/memoria_" + maquina + ".png";
 	}else if(opcao_carac == "2"){
-		img.src = "data/graficos/cpu/" + maquina + ".png";
+		img.src = "data/graficos/cpu/cpu_" + maquina + ".png";
 	}else if(opcao_carac == "3"){
-		img.src = "data/graficos/all/" + maquina + ".png";
+		img.src = "data/graficos/all/cpu_memoria _" + maquina + ".png";
 	}
     img.style.width  = 940  + "px";
     img.style.height = 300 + "px";
@@ -104,27 +106,41 @@ function changeText(){
 	var maquina_selecionada,texto;
 	if(opcao_carac == "1"){
 		maquina_selecionada = filtro_mem.filter(function(i){return i.maquina == maquina;});
-		texto ="Variabilidade: "+ maquina_selecionada[0].var_mem +
-		"<br>Desvio Padrão: "+ maquina_selecionada[0].sd_mem +
-		"<br>Sazonalidade: "+ maquina_selecionada[0].sazonalidade_mem +
-		"<br>Tendência: "+ maquina_selecionada[0].tendencia_mem +
-		"<br>Grau de autocor.:" + maquina_selecionada[0].grauautocor_mem;
+		texto = "<b>Predominância: </b> " + maquina_selecionada[0].classe +
+		"<br><br><b>Proporção CPU: </b>" + maquina_selecionada[0].cpu + 
+		"<br><b>Proporção memória: </b> "  + maquina_selecionada[0].mem +
+		"<br><b>Variabilidade: </b> "+ maquina_selecionada[0].variancia +
+		"<br><b>Desvio Padrão: </b> "+ maquina_selecionada[0].desviopadrao +
+		"<br><b>Tendência: </b> "+ maquina_selecionada[0].tendencia +
+		"<br><b>Max autocorrelação: </b> "+ maquina_selecionada[0].max_autocorrelacao +
+		"<br><b>Min autocorrelação</b>: "+ maquina_selecionada[0].min_autocorrelacao +
+		"<br><b>Grau de autocorrelação</b>: " + maquina_selecionada[0].grau_autocorrelacao;
 	}else if(opcao_carac =="2"){
 		maquina_selecionada = filtro_cpu.filter(function(i){return i.maquina == maquina;});
-		texto ="Variabilidade: "+ maquina_selecionada[0].var_cpu +
-		"<br>Desvio Padrão: "+ maquina_selecionada[0].sd_cpu +
-		"<br>Sazonalidade: "+ maquina_selecionada[0].sazonalidade_cpu +
-		"<br>Tendência: "+ maquina_selecionada[0].tendencia_cpu +
-		"<br>Grau de autocor.:" + maquina_selecionada[0].grauautocor_cpu;
+		texto = "<b>Predominância: </b> " + maquina_selecionada[0].classe +
+		"<br><br><b>Proporção CPU: </b>" + maquina_selecionada[0].cpu + 
+		"<br><b>Proporção memória: </b> "  + maquina_selecionada[0].mem +
+		"<br><b>Variabilidade: </b> "+ maquina_selecionada[0].variancia +
+		"<br><b>Desvio Padrão: </b> "+ maquina_selecionada[0].desviopadrao +
+		"<br><b>Tendência: </b> "+ maquina_selecionada[0].tendencia +
+		"<br><b>Max autocorrelação: </b> "+ maquina_selecionada[0].max_autocorrelacao +
+		"<br><b>Min autocorrelação</b>: "+ maquina_selecionada[0].min_autocorrelacao +
+		"<br><b>Grau de autocorrelação</b>: " + maquina_selecionada[0].grau_autocorrelacao;
 	}else if(opcao_carac =="3"){
-		maquina_selecionada = filtro_mem.filter(function(i){return i.maquina == maquina;});
-		texto ="Variabilidade: "+ maquina_selecionada[0].var_mem + " , " + maquina_selecionada[0].var_cpu +
-		"<br>Desvio Padrão: "+ maquina_selecionada[0].sd_mem + ", " + maquina_selecionada[0].sd_cpu +
-		"<br>Sazonalidade: "+ maquina_selecionada[0].sazonalidade_mem + ", " + maquina_selecionada[0].sazonalidade_cpu +
-		"<br>Tendência: "+ maquina_selecionada[0].tendencia_mem + ", " + maquina_selecionada[0].tendencia_cpu +
-		"<br>Grau de autocor.:" + maquina_selecionada[0].grauautocor_mem; ", " + maquina_selecionada[0].grauautocor_cpu;
+		maquina_mem = filtro_mem.filter(function(i){return i.maquina == maquina;});
+		maquina_cpu = filtro_cpu.filter(function(i){return i.maquina == maquina;});
+		
+		texto = "<b>Predominância: </b> " + maquina_mem[0].classe +
+		"<br><br><b>Proporção CPU: </b>" + maquina_mem[0].cpu + 
+		"<br><b>Proporção memória: </b> "  + maquina_mem[0].mem +
+		"<br><b>Variabilidade: </b><br> "+ maquina_mem[0].variancia + " Mem. e " + maquina_cpu[0].variancia + " CPU"+
+		"<br><b>Desvio Padrão: </b><br> "+ maquina_mem[0].desviopadrao +" Mem. e " + maquina_cpu[0].desviopadrao + " CPU"+
+		"<br><b>Tendência: </b><br>"+ maquina_mem[0].tendencia + " Mem. e " + maquina_cpu[0].tendencia + " CPU"+
+		"<br><b>Max autocorrelação: </b><br> "+ maquina_mem[0].max_autocorrelacao+ " Mem. e " + maquina_cpu[0].max_autocorrelacao + " CPU"+
+		"<br><b>Min autocorrelação</b>: <br>"+ maquina_mem[0].min_autocorrelacao+ " Mem. e " + maquina_cpu[0].min_autocorrelacao + " CPU"+
+		"<br><b>Grau de autocorrelação</b>: <br>" + maquina_mem[0].grau_autocorrelacao + " Mem. e " + maquina_cpu[0].variancia + " CPU";
 	}
-	document.getElementById('legenda').innerHTML = "<br><br><br><br><br>" + texto;
+	document.getElementById('legenda').innerHTML = "<br><br>" + texto;
 }
 
 // function navegar_traces(){

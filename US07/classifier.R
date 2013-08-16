@@ -93,14 +93,13 @@ classificaComPeso <- function(diretorio, arquivo){
     filtro_mem[filtro_mem$maquina == paste("xsys",j, sep = ""), ]$cpu = cpu
     filtro_mem[filtro_mem$maquina == paste("xsys",j, sep = ""), ]$mem = mem
     filtro_mem[filtro_mem$maquina == paste("xsys",j, sep = ""), ]$classe = classe
-    print(filtro_mem[filtro_mem$maquina == paste("xsys",j, sep = ""), ])
     
     df[j,] <- c(paste("xsys",j,sep=""), cpu, mem, classe)
     
     #print(paste("xsys",j, sep = ""))
     
   }
-  write.table(filtro_cpu, file = "sumario_cpu.csv")
-  write.table(filtro_mem, file = "sumario_mem.csv")
+  write.table(filtro_cpu, file = "sumario_cpu.csv", sep = ",", col.names = T, row.names=FALSE)
+  write.table(filtro_mem, file = "sumario_mem.csv", sep = ",", col.names = T, row.names=FALSE)
   write.table(df, file = arquivo, col.names = TRUE, row.names=FALSE)  
 }
