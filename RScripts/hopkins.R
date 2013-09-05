@@ -77,6 +77,5 @@ hopkins = function(dados, n){
   }
   
   hopkins = u/(u+w)
-  
   return (hopkins)
 }
