@@ -27,13 +27,13 @@ colnames(data) = c("xsys1","xsys2","xsys3","xsys4","xsys5","xsys6","xsys7","xsys
 
 distancia = function(ponto1, ponto2){
   resultado = 0
-  for (i in 1:ncol(ponto1)){
-    resultado = resultado + ((ponto1[,i] - ponto2[,i])^2)
+  for (i in 1:length(ponto1)){
+    resultado = resultado + ((ponto1[i] - ponto2[i])^2)
   }
   resultado = sqrt(resultado)
 }
 
-#(c) - funcao que gera um conjunto de pontos aleatorios
+#(c) - funcao:th um conjunto de pontos aleatorios
 # Na estatistica sao incluidos p pontos aleatorios ao conjunto de dados
 gerar.pontos.aleatorios = function(dados, tamanho){
   pontos = NA
@@ -46,4 +46,37 @@ gerar.pontos.aleatorios = function(dados, tamanho){
   return(pontos)
 }
 
-#(d) - funcao que gera uma amostragem  
+#(d) - funcao que gera uma amostragem de tamanho p dos dados
+amostragem.dados = function(dados, tamanho){
+  sample = sample(nrow(dados), tamanho)
+  amostra = dados[sample,]
+  return (amostra)
+}
+
+ponto.mais.proximo = function(ponto, dados){
+  distancia = distancia(ponto, dados[1,])
+  for (i in 2:nrow(dados)){
+    d = distancia(ponto, dados[i,])
+    if (!(d==0) && d < distancia){
+      distancia = d
+    }
+  }
+  return(distancia)
+}
+
+hopkins = function(dados, n){
+  amostra = amostragem.dados(dados, n)  
+  novos.pontos = as.data.frame(gerar.pontos.aleatorios(dados, n))
+  
+  w = 0
+  u = 0
+  
+  for (i in 1:n){
+    w = w + ponto.mais.proximo(amostra[i,], dados)
+    u = u + ponto.mais.proximo(novos.pontos[i,], dados)
+  }
+  
+  hopkins = u/(u+w)
+  
+  return (hopkins)
+}
