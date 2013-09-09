@@ -43,18 +43,22 @@ testAutoCorr <- function(data){
     cont = 2
     val = corr$acf[1]
     while(flag){
-        if((corr$acf[cont]<val && corr$acf[cont]>0)){
+        if((corr$acf[cont]<val && corr$acf[cont]>=0)){
             val = corr$acf[cont]
             cont = cont + 1
         }else{
             flag = FALSE
         }
     }
-    resul = corr$acf[cont:length(data)]    
-    if(max(resul)>=0.3 || min(resul)<=-0.3){
-        TRUE
-    }
-    else{
+    resul = corr$acf[cont:length(corr$acf)]
+    if(max(table(data$CPU_UTIL))/length(na.omit(data$CPU_UTIL)) <= 0.999){    
+		if(max(resul)>=0.17 || min(resul)<=-0.17){
+			TRUE
+		}
+		else{
+			FALSE
+		}
+	}else{
         FALSE
     }
 }
