@@ -46,11 +46,11 @@ geraMatrizDist <- function(){
   
   dados <- read.csv("xsys.csv")
   #fileNames <- list.files(pattern="*.csv")
-  matriz <- dist(c(1:390), method = "euclidean")
+  matriz <- dist(c(1:30), method = "euclidean")
   contador = 1
   
   
-  for(i in 1:389){
+  for(i in 1:29){
     
     #dados <- read.csv(fileNames[i])
     #dados$CPU_UTIL <- dados$CPU_UTIL
@@ -59,12 +59,13 @@ geraMatrizDist <- function(){
     serieA <- dados[,3+i]
     serieA <- na.omit(serieA)
     serieA <- minMax(serieA)
+    serieA <- minMax(serieA)
     #serieA <- minMax(serieA)
     #serieA <- minMax(serieA)
     serieA <- ceiling(serieA)
     serieA <- (serieA - min(serieA)) / (max(serieA) - min(serieA))
     
-    for(j in (i+1):390){
+    for(j in (i+1):30){
       
       #dados <- read.csv(fileNames[j])
       #dados$CPU_UTIL <- dados$CPU_UTIL
@@ -73,6 +74,7 @@ geraMatrizDist <- function(){
       serieB <- dados[,3+j]
       #serieB <- dados$CPU_UTIL
       serieB <- na.omit(serieB)
+      serieB <- minMax(serieB)
       serieB <- minMax(serieB)
       #serieB <- minMax(serieB)
       #serieB <- minMax(serieB)
@@ -92,10 +94,10 @@ geraMatrizDist <- function(){
     }
   }
   
-  grupos <- kmeans(matriz, centers = 4)
-  grupos <- grupos[1]$cluster
-  maquinaGrupo <- data.frame(Maq = xsys, Grupo = grupos)
-  write.csv(maquinaGrupo, "maquinaGrupo.csv", row.names = F)
+  #grupos <- kmeans(matriz, centers = 4)
+  #grupos <- grupos[1]$cluster
+  #maquinaGrupo <- data.frame(Maq = xsys, Grupo = grupos)
+  #write.csv(maquinaGrupo, "maquinaGrupo.csv", row.names = F)
   
   matriz
 }
@@ -105,42 +107,9 @@ matriz = geraMatrizDist()
 dbscan = dbscan(matriz, eps = 1, MinPts = 1)
 
 
-#Leitura dos traces
-trace1 <- read.csv("xsys1.csv")
-trace2 <- read.csv("xsys2.csv")
-trace10 <- read.csv("xsys10.csv")
-trace35 <- read.csv("xsys35.csv")
-trace10$CPU_UTIL <- ceiling(trace10$CPU_UTIL)
-trace35$CPU_UTIL <- ceiling(trace35$CPU_UTIL)
-trace1$CPU_UTIL <- ceiling(trace1$CPU_UTIL)
-trace2$CPU_UTIL <- ceiling(trace2$CPU_UTIL)
-fileNames <- list.files(pattern="*.csv")
-
-#Normalização/Eliminação de ruidos
-trace1$CPU_UTIL <- ceiling(trace1$CPU_UTIL)
-trace1CPU <- subset(trace1, select = CPU_UTIL)
-trace1$CPU_UTIL <- (trace1$CPU_UTIL - min(na.omit(trace1CPU$CPU_UTIL)))/(max(na.omit(trace1CPU$CPU_UTIL)) - min(na.omit(trace1CPU$CPU_UTIL)))
-trace2CPU <- subset(trace2, select = CPU_UTIL)
-trace2$CPU_UTIL <- (trace2$CPU_UTIL - min(na.omit(trace2CPU$CPU_UTIL)))/(max(na.omit(trace2CPU$CPU_UTIL)) - min(na.omit(trace2CPU$CPU_UTIL)))
-
-trace10$CPU_UTIL <- ceiling(trace10$CPU_UTIL)
-trace10CPU <- subset(trace10, select = CPU_UTIL)
-trace10$CPU_UTIL <- (trace10$CPU_UTIL - min(na.omit(trace10CPU$CPU_UTIL)))/(max(na.omit(trace10CPU$CPU_UTIL)) - min(na.omit(trace10CPU$CPU_UTIL)))
-trace35$CPU_UTIL <- ceiling(trace35$CPU_UTIL)
-trace35CPU <- subset(trace35, select = CPU_UTIL)
-trace35$CPU_UTIL <- (trace35$CPU_UTIL - min(na.omit(trace35CPU$CPU_UTIL)))/(max(na.omit(trace35CPU$CPU_UTIL)) - min(na.omit(trace35CPU$CPU_UTIL)))
-
-
-#Criação da matriz
-matriz <- dist(c(1:length(fileNames)), method = "euclidean")
-contador = 1
-matriz[contador][1] = sum(abs(dif))
-contador = contador + 1
-
 #Dtw
 install.packages("dtw")
 library(dtw)
-#valor <- dist(trace1$CPU_UTIL[3:3], trace2$CPU_UTIL[3:3], method="DTW")
 
 #Dbscan
 install.packages("fpc")
