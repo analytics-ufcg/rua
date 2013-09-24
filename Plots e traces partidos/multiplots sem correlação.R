@@ -40,9 +40,9 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
 
 
 # plot cpu e mem
-files <- c(2, 5, 6, 9, 14, 18, 25, 27, 29, 31)
+files <- c(1, 10, 11, 13, 15, 16, 17, 19, 20, 21, 22, 23, 24, 26, 28, 30, 35, 36, 4, 40, 8)
 file_names <- paste("xsys", files, ".csv", sep="")
-limits <- c(30, 10, 10, 10, 0, 8 , 3.5, 0 , 3.5, 11)
+limits <- c(0, 0, 0, 0, 0, 10, 0, 1.5, 0, 0, 0, 0, 5, 3, 3, 0.0, 3.9, 3.9, 0, 0, 15)
 
 for(i in 1:length(file_names)){
      
