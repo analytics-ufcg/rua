@@ -1,6 +1,6 @@
 proporcao <- function(){
 	#fileNames <- list.files(pattern="*.csv")
-	fileNames <- read.csv("output/informacoesLog_filtered.csv")[,1]
+	fileNames <- read.csv("output/informacoesLog.csv")[,1]
 	retorno <- data.frame(maquina = c(1:length(fileNames)), Co0=c(1:length(fileNames)), CoX=c(1:length(fileNames)), CoX2=c(1:length(fileNames)), CoX3=c(1:length(fileNames)), R=c(1:length(fileNames)))
 	contador = 1
 	for(i in fileNames){

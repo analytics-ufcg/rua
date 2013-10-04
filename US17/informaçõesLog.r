@@ -39,7 +39,7 @@ information <- function(){
 
 resultado = information()
 
-write.csv(resultado,"output/informaçõesLog.csv", row.names=FALSE)
+write.csv(resultado,"output/informacoesLog.csv", row.names=FALSE)
 
 resultado <- subset(resultado, (Rlinear > 0.4) | (Rpoli2 > 0.4) | (Rpoli3 > 0.4))
 
