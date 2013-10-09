@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>RUA</title>
+<link rel="stylesheet" type="text/css" href="estilo.css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script>
+<script type="text/javascript" src="javascript.js"></script>
+<script type="text/javascript" src="sumario_traces.js"></script>
+<script type="text/javascript" src="filtrar_aplicacoes.js"></script>
+<script type="text/javascript" src="grupos_traces.js"></script>
+<script type="text/javascript" src="relacoes_traces.js"></script>
+<script type="text/javascript" src="data/d3.v3.js"></script>
+
+</head>
+
+<body>
+
+	<script>
+		window.onload = function(){loadData();}
+	</script>
+
+	<div class="global-div">
+
+		<h1>RUA - Resource Usage Analytics</h1>
+		
+		<ul class="abas">
+			<li><a href="#noticia1" OnClick="sumario()">Sumário de Carga</a></li>
+			<li><a href="#noticia2">Filtro</a></li>
+			<li><a href="#noticia3" OnClick="settings()">Grupos</a></li>
+			<li><a href="#noticia4" OnClick="relacoes_traces()">Relações</a></li>
+		</ul>
+
+		<div id="noticia"></div>
+
+		<div id="conteudo">
+
+			<div id="noticia1">
+				<h2>Análise de características das cargas de utilização de CPU e MEM
+					<a href = "javascript:void(0)" OnClick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
+						<img src="data/icon_interrogacao.gif" alt="">
+					</a>
+				
+					<div id="light" class="white_content">
+						Sobre as características de utilização de CPU e MEM
+						<font size=1>
+						<a href = "javascript:void(0)" OnClick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" style="float:right;">Fechar</a>
+						</font>
+					</div>
+					<div id="fade" class="black_overlay"></div>
+					
+				</h2> 
+					<font size=2>
+					Selecione um Trace: <select id="myListSumario"
+							onchange="getMenuOptionSum(this)">
+						</select>
+					</font>	
+					<div id = "legenda" align="left">
+					</div>
+			</div>
+
+			<div id="noticia2">
+				<h2>Filtrar Cargas</h2>
+					<font size=2>
+						<div id = "dropdownMenu" align = "center">
+							<select id="myListFiltro" onchange="getMenuOptionFiltro(this)">
+							</select>
+						</div>
+						<div id="caracteristicas" align="left"><br>
+						Selecione a característica : <br><br>
+							<input type="radio" name="option1" onclick="filtrar_aplicacoes(1)">Memória<br>
+							<input type="radio" name="option1" onclick="filtrar_aplicacoes(2)">CPU<br>
+							<input type="radio" name="option1" onclick="filtrar_aplicacoes(3)">Memória e CPU<br>
+						</div>
+					</font>
+					<div id = "legenda" align="left">
+					</div>
+			</div>
+
+			<div id="noticia3">
+				<h2>Grupo de Cargas</h2>
+			</div>
+			
+			<div id="noticia4">
+				<h2>Relações entre CPU x Memória</h2>
+					<font size=2>
+					Selecione um tipo de relação: <select id="myListRelacoes"
+							onchange="getMenuOptionRelacoes(this)">
+						</select>
+					</font>	
+					<div id = "legenda" align="left">
+						
+				</div>
+			</div>
+
+		</div>
+		<div id="footer_links">
+			<ul class="credito">
+				<li><a>FRH/HP - Analytics 2013</a></li>
+			</ul>
+		</div>
+
+	</div>
+
+</body>
+</html>

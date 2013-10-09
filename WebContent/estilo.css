@@ -1,0 +1,212 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*----------------------RESET--------------------*/
+
+body, html, div, blockquote, img, label, p, h1, h2, h3, h4, h5, h6, pre, ul, ol,
+li, dl, dt, dd, form, a, fieldset, input, th, td
+{margin: 0; padding: 0; outline: none;}
+
+html{background:#E8E8E8;}
+
+body{
+	line-height:1;
+	font-size:62.5%;
+	background:#ccc;
+	font-family:Arial, Helvetica, sans-serif;} /*---- 1.0 em = 10px---*/
+
+h1, h2, h3, h4, h5, h6{font-size:100%;}
+
+p{
+	font-size:1.3em;
+	line-height:1.8em;
+	margin-bottom:10px;}
+
+a{
+	text-decoration:none;
+	color:#333;
+	font-size:1.2em;}
+
+/*----------------------RESET--------------------*/
+
+.global-div{
+	width:1200px;
+	height:1000px;
+	padding:0 15px 15px 15px;
+	position:absolute;
+	float:none;
+	left:40%;
+	margin:5px 0 0 -470px;
+	border:5px solid #fff;
+	background:#fff;
+	box-shadow:0 0 5px #999;
+	-moz-box-shadow:0 0 5px #999;
+	-webkit-box-shadow:0 0 5px #999; }
+
+h1{
+	font:arial;
+	font-size: 4em;
+	text-align:center;
+	margin: -5px -20px 20px -20px;
+	background:#203146;
+	color:#fff;
+	padding:20px 10px;
+	letter-spacing:-0.04em;
+	text-shadow:0px 0px 5px #eaeaea;}
+
+	
+h2{
+	font:arial;
+	text-align:center;
+	padding:20px 10px;
+	font-size: 1.5em;}
+
+ul{list-style:none; padding-left:10px;}
+
+.abas li{
+	float:left;
+	border:1px solid #ccc;
+	border-bottom:0;
+	margin-right:1px;
+	padding:10px;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	-moz-border-radius-topleft:5px;
+	-moz-border-radius-topright:5px;
+	-webkit-border-radius-topleft:5px;
+	-webkit-border-radius-topright:5px; }
+
+.abas li:hover{
+	box-shadow:0 -2px 3px #DFDFDF;
+	-moz-box-shadow:0 -2px 3px #DFDFDF;
+	-webkit-box-shadow:0 -2px 3px #DFDFDF;
+	font-weight:bold; border-color:#c0c0c0;}
+
+.ativo{
+	background:#ccc;
+	border-color:#333;}
+
+.ativo a{
+	color:#fff;
+	font-weight:bold;
+	text-shadow:0 0 5px #999;}
+
+#noticia{
+	position:relative;
+	width:1170px;
+	height:840px;
+	padding:10px;
+	clear:both;
+	border:1px solid #ccc;
+	-moz-box-shadow:0 -1px 3px #ccc;}
+
+#noticia div{display:none;}
+
+#legenda{
+	font:arial;
+	font-size: 1.3em;
+}
+
+/*Estilo das tabelas usadas no site*/
+
+table.detalhes{
+	border-width: 1px;
+	border-spacing: 2px;
+	border-style: outset;
+	border-color: #203146;
+	border-collapse: collapse;
+	background-color: white;
+}
+table.detalhes th {
+	border-width: 2px;
+	padding: 3px;
+	border-style: inset;
+	border-color: white;
+	background-color: white;
+	-moz-border-radius: ;
+}
+table.detalhes td {
+	border-width: 2px;
+	padding: 3px;
+	border-style: inset;
+	border-color: white;
+	background-color: white;
+	-moz-border-radius: ;
+}
+
+/*carousel de imagens dos traces*/
+
+/* #wrap_carousel {
+	background-color: white;
+	border: 1px solid #E8E8E8;
+	margin-left:400px;
+	width:700px;
+	height: 95px;
+	padding: 90px 30px;
+	position: relative;
+}
+#carousel li img {
+	border: 1px solid #E8E8E8;
+	width: 100%;
+}
+#carousel li {
+	float: left;
+	overflow: hidden;
+	width: 120px;
+	height: 95px;
+	margin: 0 10px;
+	display: inline;
+}
+#prev,
+#next {
+	position: absolute;
+	top: 10px;
+	cursor: pointer;
+}
+#prev {
+	left: 10px;
+}
+#next {
+	right: 10px;
+} */
+
+
+/*Estilo dos creditos no fim do site*/
+
+.credito{
+	font-size:1.1em;
+	position:absolute;
+	right:0;
+	bottom:-40px;
+	margin-top:25px;}
+
+.credito a{font-size:1.1em;}
+
+/* Estilo do lightbox*/
+
+        .black_overlay{
+            display: none;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index:1001;
+            -moz-opacity: 0.8;
+            opacity:.70;
+            filter: alpha(opacity=10);
+        }
+        .white_content {
+            display: none;
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 80%;
+            height: 80%;
+            padding: 16px;
+            border: 6px solid grey;
+            background-color: white;
+            z-index:1002;
+            overflow: auto;
+        }
