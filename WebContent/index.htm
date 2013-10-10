@@ -19,6 +19,7 @@
 
 	<script>
 		window.onload = function(){loadData();}
+		
 	</script>
 
 	<div class="global-div">
@@ -26,9 +27,9 @@
 		<h1>RUA - Resource Usage Analytics</h1>
 		
 		<ul class="abas">
-			<li><a href="#noticia1" OnClick="sumario()">Sumário de Carga</a></li>
-			<li><a href="#noticia2">Filtro</a></li>
-			<li><a href="#noticia3" OnClick="settings()">Grupos</a></li>
+			<li><a href="#noticia1" OnClick="sumario();">Sumário de Carga</a></li>
+			<li><a href="#noticia2">Seleção</a></li>
+			<li><a href="#noticia3" OnClick="settings()">Agrupamento</a></li>
 			<li><a href="#noticia4" OnClick="relacoes_traces()">Relações</a></li>
 		</ul>
 
@@ -38,14 +39,40 @@
 
 			<div id="noticia1">
 				<h2>Análise de características das cargas de utilização de CPU e MEM
-					<a href = "javascript:void(0)" OnClick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
+					<a OnClick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
 						<img src="data/icon_interrogacao.gif" alt="">
 					</a>
 				
 					<div id="light" class="white_content">
 						Sobre as características de utilização de CPU e MEM
 						<font size=1>
-						<a href = "javascript:void(0)" OnClick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" style="float:right;">Fechar</a>
+						<a OnClick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" style="float:right;">Fechar</a>
+						</font>
+						<br><br>
+						<font size = 2>O Resource Usage Analytics tem como objetivo desenvolver um sistema web que consiga analisar a distribuição dos recursos de uma aplicação, 
+						com relação a memória RAM e CPU,  para prover, às aplicações que usam a nuvem, os recursos necessários e, ao mesmo tempo, evitar o desperdício de alocar 
+						mais recursos do que o demandado pela aplicação, de forma eficiente. Algumas características que são importantes em um primeiro olhar, para uma série temporal, 
+						são:
+						<br><br>
+						<u>Predominância</u>
+						 - Ao longo do tempo, a máquina apresenta em porporção uma carga maior de uso de CPU ou memória?<br>
+						<i>Esta característica ajuda a identificar como a aplicação utiliza a máquina e no futuro definir uma configuração que supra as necessidades específicas da aplicação</i><br><br>
+						<u>Proporção</u>
+						 - Qual a proporção de carga que a máquina utiliza ao longo do tempo?<br>
+						<i>Ajuda a identifica como funciona a relação de uso de memória e CPU da máquina, ao longo do tempo, qual será a proporção da carga utilizada de memória e CPU?
+						Essa característica é complementar a anterior.</i><br><br>
+						<u>Tendência</u>
+						 - Existe uma tendência, o que significa que, em média, as medidas tendem a aumentar (ou diminuir) ao longo do tempo?<br>
+						<i>Isso pode ajudar na identificação de um possível ou de possíveis padrões que podem ser apresentados pelas series temporais.</i><br><br>
+						<u>Variabilidade</u>
+						 - Existe variância constante ao longo do tempo, ou é a variância não constante?<br>
+						<i>Permitirá observar se os valores assumidos giram em torno de um valor ou tendem a ele, ou então se os valores assumidos são totalmente randomicos.</i><br><br>
+						<u>Desvio Padrão</u>
+						 - Qual dispersa está a carga utilizada ao longo do tempo?<br>
+						<i>Ajuda a indentificar possíveis padrões que podem ocorrer ao longo do tempo.</i><br><br>
+						<u>Autocorrelação</u>
+						 - A autocorrelação pode ser interpretada como a correlação entre as observações ao longo do tempo, essa característica é interessante para o estudo de possíveis padrões que possam ocorrer na série temporal.<br>
+						<i></i><br><br>
 						</font>
 					</div>
 					<div id="fade" class="black_overlay"></div>
@@ -61,7 +88,37 @@
 			</div>
 
 			<div id="noticia2">
-				<h2>Filtrar Cargas</h2>
+				<h2>Seleção de cargas favoráveis à previsão automática
+						<a href = "javascript:void(0)" OnClick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
+						<img src="data/icon_interrogacao.gif" alt="">
+					</a>
+				
+					<div id="light" class="white_content">
+						Sobre a seleção das cargas
+						<font size=1>
+						<a href = "javascript:void(0)" OnClick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" style="float:right;">Fechar</a>
+						</font>
+						<br><br>
+						<font size = 2>
+							Inicialmente as cargas que não sofriam variação, ou sofriam pouca variação, foram eliminadas, essas cargas geralmente em suas séries temporais se 
+							comportavam praticamente como uma reta.Após esta abordagem, foi aplicado um outro método de fitragem, por  meio da autocorrelação, que nos diz o 
+							quanto o valor de uma realização de uma variável aleatória é capaz de influenciar seus vizinhos. Para tanto calculamos a autocorrelação, então 
+							descartamos os valores até encontrar um que seja maior que o anterior ou até atingirmos o valor zero, depois desse descarte de valores iniciais 
+							(realizado porque no inicio da comparação da correlação os valores iniciais ainda estão influênciados pela proximidade dos pontos examinados), 
+							observamos os valores e caso encontremos pelo menos um valor maior ou igual a 0.3 ou menor ou igual a -0.3 significa que a carga possui uma variação
+							padronizada de no mínimo fraca, justificando sua permanência nas cargas a serem estudadas,  após passar pelo filtro. Com isso chegamos a um conjunto 
+							de cargas mais relevantes para classificação.
+							<br><br>
+							Para esse estudo foram estabelecidas categorias com base na predominância da carga utilizada na máquina. Nesse contexto predominância corresponde
+							a carga utilizada ao longo do tempo,i.e. a máquina utilizou em proporção uma demanda de carga maior de cpu ou memória.
+							As cargas foram classificadas em três categorias, memory-intense, cpu-intense ou memory-cpu-intense, de acordo com a demanda maior de uso. É considerado 
+							cpu ou memory-intense no caso de ocorrer 99% de uso maior para cpu ou memoria, levando em consideração para essa conta o uso de cores (para cpu) e o uso 
+							de giga bytes (para memoria). 
+						</font>
+					</div>
+					<div id="fade" class="black_overlay"></div>
+					
+				</h2> 
 					<font size=2>
 						<div id = "dropdownMenu" align = "center">
 							<select id="myListFiltro" onchange="getMenuOptionFiltro(this)">
@@ -79,15 +136,59 @@
 			</div>
 
 			<div id="noticia3">
-				<h2>Grupo de Cargas</h2>
+				<h2>Agrupamento de cargas de CPU com características semelhantes<a OnClick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
+						<img src="data/icon_interrogacao.gif" alt="">
+					</a>
+				
+					<div id="light" class="white_content">
+						Sobre o agrupamento
+						<font size=1>
+						<a href = "javascript:void(0)" OnClick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" style="float:right;">Fechar</a>
+						</font>
+						<br><br>
+						<font size = 2>
+							Cada máquina possui um comportamento de utilização de carga de CPU ao longo do tempo, a ideia do agrupamento é reunir as máquinas que possuam características
+							semelhantes ao longo do tempo e assim possibilitar o utilização de recursos de forma ótima combinando aplicações que possuem comportamentos complementares ou
+							semelhantes em um mesmo servidor.
+							<br><br>
+							Para realizar o agrupamento foram utilizadas as quatro métricas abaixo:
+							<br><br>
+							<u>Correlação</u>
+							<br>
+							<i></i><br><br>
+							<u>DTW(dynamic time warping)</u>
+							<br>
+							<i></i><br><br>
+							<u>Distância ponto a ponto</u>
+							<br>
+							<i></i><br><br>
+							<u>Correlação cruzada</u>
+							<br>
+							<i>Nessa métrica, tentamos determinar o quanto é preciso que deslocar uma série A ao longo do tempo para que esta se torne igual a uma outra série B.
+							Em algum ponto do deslocamento obtemos uma correlação máxima para as cargas observadas, dessa forma temos um momento do tempo t onde a série A fica
+							próxima do comportamento de B. Utilizando esses valores, foi calculada uma matriz de distâncias utilizada para o agrupamento das cargas.</i><br><br>
+						</font>
+					</div>
+					<div id="fade" class="black_overlay"></div>
+				</h2>
+				
+				<div id="métricas" align="left"><br>
+					<font size = 2>
+						Selecione a métrica: <br><br>
+						<input type="radio" name="option1" onclick="filtrar_aplicacoes(1)"> Correlação<br>
+						<input type="radio" name="option1" onclick="filtrar_aplicacoes(2)"> DTW(dynamic time warping)<br>
+						<input type="radio" name="option1" onclick="filtrar_aplicacoes(3)"> Distância ponto a ponto<br>
+						<input type="radio" name="option1" onclick="filtrar_aplicacoes(3)"> Correlação cruzada<br>
+					</size>
+				</div>
 			</div>
 			
 			<div id="noticia4">
-				<h2>Relações entre CPU x Memória</h2>
+				<h2>Análise de relações entre CPU e Memória para cargas de utilização</h2>
 					<font size=2>
-					Selecione um tipo de relação: <select id="myListRelacoes"
+					<!-- Selecione um tipo de relação: <select id="myListRelacoes"
 							onchange="getMenuOptionRelacoes(this)">
-						</select>
+						</select> -->
 					</font>	
 					<div id = "legenda" align="left">
 						

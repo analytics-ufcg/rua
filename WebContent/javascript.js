@@ -47,5 +47,6 @@ function loadData(){
 	d3.csv("data/sumario_relacoes.csv", function(data){
 		relacoes = data;
 	});
+	
 }
 
