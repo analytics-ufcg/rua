@@ -30,10 +30,10 @@ function getAplicacao(){
     var svg;
 	img = document.createElement('img');
 
-	img.src = "data/graficos/sumario/" + maquina + ".csv.png";
+	img.src = "data/graficos/sumario/" + maquina + ".png";
 
-    img.style.width  = 860  + "px";
-    img.style.height = 530 + "px";
+    img.style.width  = 750  + "px";
+    img.style.height = 750 + "px";
 	img.style.position = "absolute";
 	img.style.top = "70px";
 	img.style.left = "320px";

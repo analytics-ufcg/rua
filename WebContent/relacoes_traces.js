@@ -27,6 +27,39 @@ function relacoes_traces(){
 	// .text(function(d){return d.relacao;});
 }
 
+function selecionar_relacoes(opcao){ //adicionar o id da opcao aqui depois
+	// var myList = d3.selectAll("#myListFiltro");
+	// opcao_carac = opcao;
+	
+	// //Atualizar dropdown a cada selecao de variavel
+	// if(opcao == "1"){
+		// myList = d3.selectAll("#myListFiltro");
+		// myList.selectAll("option").remove();
+		// clearImages()
+		// myList.selectAll("option").data(filtro_mem).enter().append("option")
+		// .attr("value",function(d){return d.maquina;})
+		// .attr("label",function(d){return d.maquina;})
+		// .text(function(d){return d.maquina;});
+	// }else if(opcao == "2"){
+		// myList = d3.selectAll("#myListFiltro");
+		// myList.selectAll("option").remove();
+		// clearImages()
+		// myList.selectAll("option").data(filtro_cpu).enter().append("option")
+		// .attr("value",function(d){return d.maquina;})
+		// .attr("label",function(d){return d.maquina;})
+		// .text(function(d){return d.maquina;});
+	// }else if(opcao == "3"){
+		
+		// myList = d3.selectAll("#myListFiltro");
+		// myList.selectAll("option").remove();
+		// clearImages()
+		// myList.selectAll("option").data(filtro_cpu).enter().append("option")
+		// .attr("value",function(d){return d.maquina;})
+		// .attr("label",function(d){return d.maquina;})
+		// .text(function(d){return d.maquina;});
+	// }	
+}
+
 // function getRelacoes(){
     // var img;
     // var svg;

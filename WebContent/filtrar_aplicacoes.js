@@ -59,17 +59,17 @@ function getAplicacaoFiltro(){
 	img = document.createElement('img');
     
 	if(opcao_carac == "1"){
-		img.src = "data/graficos/mem/"+ maquina + ".csv.png";
+		img.src = "data/graficos/filtro/mem/"+ maquina + ".csv.png";
 	}else if(opcao_carac == "2"){
-		img.src = "data/graficos/cpu/" + maquina + ".csv.png";
+		img.src = "data/graficos/filtro/cpu/" + maquina + ".csv.png";
 	}else if(opcao_carac == "3"){
-		img.src = "data/graficos/all/" + maquina + ".csv.png";
+		img.src = "data/graficos/filtro/all/" + maquina + ".csv.png";
 	}
-    img.style.width  = 840  + "px";
+    img.style.width  = 550  + "px";
     img.style.height = 550 + "px";
 	img.style.position = "absolute";
-	img.style.top = "100px";
-	img.style.left = "350px";
+	img.style.top = "120px";
+	img.style.left = "320px";
     target = document.getElementById("caracteristicas");
     target.appendChild(img);
 	changeTextFiltro();

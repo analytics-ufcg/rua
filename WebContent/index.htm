@@ -29,7 +29,7 @@
 		<ul class="abas">
 			<li><a href="#noticia1" OnClick="sumario();">Sumário de Carga</a></li>
 			<li><a href="#noticia2">Seleção</a></li>
-			<li><a href="#noticia3" OnClick="settings()">Agrupamento</a></li>
+			<li><a href="#noticia3">Agrupamento</a></li>
 			<li><a href="#noticia4" OnClick="relacoes_traces()">Relações</a></li>
 		</ul>
 
@@ -171,28 +171,55 @@
 					</div>
 					<div id="fade" class="black_overlay"></div>
 				</h2>
-				
-				<div id="métricas" align="left"><br>
+				<font size=2>
+						<div id = "dropdownMenu" align = "center">
+							<select id="myListGrupos" onchange="getMenuOptionGrupo(this)">
+							</select>
+						</div>
+				</font>
+				<div id="metricas" align="left"><br>
 					<font size = 2>
 						Selecione a métrica: <br><br>
-						<input type="radio" name="option1" onclick="filtrar_aplicacoes(1)"> Correlação<br>
-						<input type="radio" name="option1" onclick="filtrar_aplicacoes(2)"> DTW(dynamic time warping)<br>
-						<input type="radio" name="option1" onclick="filtrar_aplicacoes(3)"> Distância ponto a ponto<br>
-						<input type="radio" name="option1" onclick="filtrar_aplicacoes(3)"> Correlação cruzada<br>
-					</size>
+						<input type="radio" name="option1" onclick="selecionar_grupo(1)"> Correlação<br>
+						<input type="radio" name="option1" onclick="selecionar_grupo(2)"> DTW(dynamic time warping)<br>
+						<input type="radio" name="option1" onclick="selecionar_grupo(3)"> Distância ponto a ponto<br>
+						<input type="radio" name="option1" onclick="selecionar_grupo(4)"> Correlação cruzada<br>
+					</font>
 				</div>
 			</div>
 			
 			<div id="noticia4">
-				<h2>Análise de relações entre CPU e Memória para cargas de utilização</h2>
-					<font size=2>
-					<!-- Selecione um tipo de relação: <select id="myListRelacoes"
-							onchange="getMenuOptionRelacoes(this)">
-						</select> -->
-					</font>	
-					<div id = "legenda" align="left">
-						
+				<h2>Análise de relações entre CPU e Memória para cargas de utilização<a OnClick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
+						<img src="data/icon_interrogacao.gif" alt="">
+					</a>
+				
+					<div id="light" class="white_content">
+						Sobre as relações entre CPU e Memória para cargas de utilização
+						<font size=1>
+						<a href = "javascript:void(0)" OnClick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" style="float:right;">Fechar</a>
+						</font>
+						<br><br>
+						<font size = 2>
+						</font>
+					</div>
+					<div id="fade" class="black_overlay"></div>
+				</h2>
+				<font size=2>
+						<div id = "dropdownMenu" align = "center">
+							<select id="myListRelacoes" onchange="getMenuOptionRelacoes(this)">
+							</select>
+						</div>
+				</font>
+				<div id="caracteristicas" align="left"><br>
+					<font size = 2>
+						Selecione o tipo de relação: <br><br>
+						<input type="radio" name="option1" onclick="selecionar_relacoes(1)"> CPU x Tempo<br>
+						<input type="radio" name="option1" onclick="selecionar_relacoes(2)"> Memória x Tempo<br>
+						<input type="radio" name="option1" onclick="selecionar_relacoes(3)"> Predição x Tempo<br>
+						<input type="radio" name="option1" onclick="selecionar_relacoes(4)"> Erro x Tempo<br>
+					</font>
 				</div>
+			</div>
 			</div>
 
 		</div>

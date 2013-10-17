@@ -35,12 +35,12 @@ function loadData(){
 
 function filtrar_aplicacoes(opcao){
 	
-	var myList = d3.selectAll("#myList");
+	var myList = d3.selectAll("#myListFiltro");
 	opcao_carac = opcao;
 	
 	//Atualizar dropdown a cada selecao de variavel
 	if(opcao == "1"){
-		myList = d3.selectAll("#myList");
+		myList = d3.selectAll("#myListFiltro");
 		myList.selectAll("option").remove();
 		clearImages()
 		myList.selectAll("option").data(filtro_mem).enter().append("option")
@@ -48,7 +48,7 @@ function filtrar_aplicacoes(opcao){
 		.attr("label",function(d){return d.maquina;})
 		.text(function(d){return d.maquina;});
 	}else if(opcao == "2"){
-		myList = d3.selectAll("#myList");
+		myList = d3.selectAll("#myListFiltro");
 		myList.selectAll("option").remove();
 		clearImages()
 		myList.selectAll("option").data(filtro_cpu).enter().append("option")
@@ -57,7 +57,7 @@ function filtrar_aplicacoes(opcao){
 		.text(function(d){return d.maquina;});
 	}else if(opcao == "3"){
 		
-		myList = d3.selectAll("#myList");
+		myList = d3.selectAll("#myListFiltro");
 		myList.selectAll("option").remove();
 		clearImages()
 		myList.selectAll("option").data(filtro_cpu).enter().append("option")
